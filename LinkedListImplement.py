@@ -62,6 +62,11 @@ class LinkedList:
             return
         return
 
+    def reverse_linked_list(self):
+        traversal_node = self.head
+        while traversal_node.next_node is not None:
+            pass
+
 
 linked_list = LinkedList()
 linked_list.insert_start(10)
@@ -69,6 +74,9 @@ linked_list.insert_start(20)
 linked_list.insert_end('Adam')
 linked_list.insert_end(4.5)
 linked_list.insert_end('456')
+linked_list.insert_end(60)
+linked_list.insert_end(70)
+linked_list.insert_end(90)
 linked_list.traverse()
 print('=================')
 linked_list.remove_item(1000)
