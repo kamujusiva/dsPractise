@@ -65,7 +65,8 @@ class LinkedList:
     def reverse_linked_list(self):
         traversal_node = self.head
         while traversal_node.next_node is not None:
-            pass
+            next_node = traversal_node.next_node
+
 
 
 linked_list = LinkedList()
