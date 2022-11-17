@@ -1,9 +1,13 @@
+import random
+
+
 class Node:
     def __init__(self, data, parent=None):
         self.data = data
         self.parent = parent
         self.left_node = None
         self.right_node = None
+
 
 class BinarySearchTree:
     def __init__(self):
@@ -33,16 +37,16 @@ class BinarySearchTree:
         if self.root is None:
             return None
         else:
-            self.get_min_value(self.root)
+            return self.get_min_value(self.root)
 
     def get_min_value(self, current_node):
         if current_node.left_node is not None:
-            self.get_min_value(current_node.left_node)
+            return self.get_min_value(current_node.left_node)
         return current_node.data
 
     def get_max(self):
         if self.root is not None:
-            self.get_max_value(self.root)
+            return self.get_max_value(self.root)
 
     def get_max_value(self, current_node):
         if current_node.right_node is not None:
@@ -56,20 +60,20 @@ class BinarySearchTree:
     def traverse_in_order(self, current_node):
         if current_node.left_node is not None:
             self.traverse_in_order(current_node.left_node)
-        print(current_node.data)
+        print(current_node.data, end=' ')
         if current_node.right_node is not None:
             self.traverse_in_order(current_node.right_node)
 
+    def display_binary_tree(self):
+        if self.root is None:
+            return
+        else:
+            pass
+
+
 bst = BinarySearchTree()
-import  random
-for i in range(1, 40):
-    bst.insert_node(random.randint(1, 16))
+for i in range(1, 400):
+    bst.insert(random.randint(1, 200))
+print("Minimum Value in Tree is:\t", bst.get_min())
+print("Maximum Value in Tree is:\t", bst.get_max())
 bst.traverse()
-
-
-
-
-
-
-
-
