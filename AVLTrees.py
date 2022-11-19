@@ -108,7 +108,9 @@ class AVLTree:
         return current_node
 
     def calc_height(self, given_node: Node):
-        pass
+        if given_node is None:
+             return -1
+
 
     def handle_balance(self, given_node: Node):
         pass
