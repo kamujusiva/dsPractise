@@ -136,7 +136,6 @@ class AVLTree:
             # This is right rotation on grandparent
             self.rotate_left(given_node)
 
-
     def calc_height(self, given_node: Node):
         if given_node is None:
             return -1
@@ -147,5 +146,3 @@ class AVLTree:
             return 0
 
         return (self.calc_height(given_node.left_node) - self.calc_height(given_node.right_node))
-
-
