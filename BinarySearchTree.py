@@ -104,7 +104,7 @@ class BinarySearchTree:
                 del current_node
             # if there is single left child
             elif current_node.left_node is not None and current_node.right_node is None:
-                print("Removing the node with single right child: ", current_node.data)
+                print("Removing the node with single left child: ", current_node.data)
                 parent = current_node.parent
                 if parent is not None and parent.left_node == current_node:
                     parent.left_node = current_node.left_node
