@@ -25,7 +25,7 @@ class AVLTree:
             else:
                 current_node.left_node = Node(data, parent=current_node)
                 current_node.height = max(self.calc_height(current_node.left_node),
-                                          self.calc_height(current_node.right_node))+1
+                                          self.calc_height(current_node.right_node)) + 1
         elif data > current_node.data:
             if current_node.right_node is not None:
                 self.insert_node(data, current_node.right_node)
@@ -107,10 +107,45 @@ class AVLTree:
             return self.get_predecessor(current_node.left_node)
         return current_node
 
+    def handle_balance(self, given_node: Node):
+        # check the nodes from given node we have inserted up to the root node
+        while given_node is not None:
+            given_node.height = max(self.calc_height(given_node.left_node),
+                                    self.calc_height(given_node.right_node)) + 1
+            self.balance_helper(given_node)
+            # whenever we fix an imbalance situation, it may happen that,
+            # it could cause imbalance in other parts of the tree
+            given_node = given_node.parent
+
+    # Check whether the subtree is balanced with root node = given_node
+    def balance_helper(self, given_node: Node):
+        balance = self.balance_factor(given_node)
+        # This is left heavy situation. But it can be left-right heavy or left-left heavy
+        if balance > 1:
+            # Now check for left right heavy situation: left rotation on parent + right rotation on grandparent
+            if self.balance_factor(given_node.left_node) < 0:
+                self.rotate_left(given_node.left_node)
+            # This is right rotation on grandparent
+            self.rotate_right(given_node)
+
+        # This is right heavy situation. But it can be right-left heavy or right-right heavy
+        if balance < -1:
+            # Now check for right left heavy situation: right rotation on parent + left rotation on grandparent
+            if self.balance_factor(given_node.right_node) > 0:
+                self.rotate_right(given_node.right_node)
+            # This is right rotation on grandparent
+            self.rotate_left(given_node)
+
+
     def calc_height(self, given_node: Node):
         if given_node is None:
-             return -1
+            return -1
+        return given_node.height
+
+    def balance_factor(self, given_node: Node):
+        if given_node is None:
+            return 0
+
+        return (self.calc_height(given_node.left_node) - self.calc_height(given_node.right_node))
 
 
-    def handle_balance(self, given_node: Node):
-        pass
