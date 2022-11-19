@@ -132,8 +132,12 @@ class BinarySearchTree:
 
 
 bst = BinarySearchTree()
-for i in range(1, 40):
-    bst.insert(random.randint(1, 15))
+for i in range(1, 90):
+    bst.insert(random.randint(20, 45))
 print("Minimum Value in Tree is:\t", bst.get_min())
 print("Maximum Value in Tree is:\t", bst.get_max())
 bst.traverse()
+for i in range(20, 40):
+    print()
+    bst.remove(i)
+    bst.traverse()
