@@ -50,7 +50,7 @@ class BinarySearchTree:
 
     def get_max_value(self, current_node):
         if current_node.right_node is not None:
-            self.get_max_value(current_node.right_node)
+            return self.get_max_value(current_node.right_node)
         return current_node.data
 
     def traverse(self):
@@ -131,12 +131,9 @@ class BinarySearchTree:
         return current_node
 
 
-
-
-
 bst = BinarySearchTree()
-for i in range(1, 400):
-    bst.insert(random.randint(1, 200))
+for i in range(1, 40):
+    bst.insert(random.randint(1, 15))
 print("Minimum Value in Tree is:\t", bst.get_min())
 print("Maximum Value in Tree is:\t", bst.get_max())
 bst.traverse()
