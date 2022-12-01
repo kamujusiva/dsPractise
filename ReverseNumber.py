@@ -11,6 +11,6 @@ def number_reversal(given_number: int) -> int:
     return reversed_number
 
 
-test_number = 4567
+test_number = 4568
 print('Test Number:\t\t', test_number)
 print('Reversed Number:\t', number_reversal(test_number))
