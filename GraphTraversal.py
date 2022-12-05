@@ -1,5 +1,6 @@
 from queue import Queue
-from Graph import *
+from Graph import AdjacencyMatrixGraph
+import numpy as np
 
 
 def breadth_first(graph, start=0):
