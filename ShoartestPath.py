@@ -53,6 +53,7 @@ g.add_edge(5, 4)
 g.add_edge(3, 6)
 g.add_edge(6, 7)
 g.add_edge(0, 7)
+
 shortest_path(g, 0, 5)
 shortest_path(g, 0, 6)
 shortest_path(g, 7, 4)
